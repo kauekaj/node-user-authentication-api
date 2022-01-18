@@ -1,7 +1,8 @@
 import { NextFunction, Request, Response, Router } from 'express';
-import JWT from 'jsonwebtoken'
 import { StatusCodes } from 'http-status-codes';
+import JWT from 'jsonwebtoken';
 import basicAuthenticationMiddleware from '../middlewares/basic-authentication.middleware';
+import jwtAuthenticationMiddleware from '../middlewares/jwt-authentication.middleware';
 import ForbiddenError from '../models/errors/forbidden.error.model';
 
 
@@ -28,5 +29,8 @@ authorizationRoute.post('/token', basicAuthenticationMiddleware, async (req: Req
     }
 });
 
+authorizationRoute.post('/token/validate', jwtAuthenticationMiddleware, (req: Request, res: Response, next: NextFunction) => {
+    res.sendStatus(StatusCodes.OK);
+});
 
 export default authorizationRoute;

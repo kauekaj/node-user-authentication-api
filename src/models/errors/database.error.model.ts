@@ -1,4 +1,3 @@
-
 class DatabaseError extends Error {
 
     constructor(
