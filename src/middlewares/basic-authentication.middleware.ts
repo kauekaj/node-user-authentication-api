@@ -1,4 +1,4 @@
-import { Router, Response, Request, NextFunction } from 'express';
+import { Response, Request, NextFunction } from 'express';
 import ForbiddenError from '../models/errors/forbidden.error.model';
 import userRepository from '../repositories/user.repository';
 
